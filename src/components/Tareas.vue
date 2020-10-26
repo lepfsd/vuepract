@@ -12,12 +12,14 @@
       :titulo="item.title"
       @eliminarItem="eliminarItem($index)"
     ></Tarea>
+    <TareaDetalles />
   </div>
 </template>
 
 <script>
 import todoService from "../services/todoService.js";
 import Tarea from "@/components/Tarea";
+import TareaDetalles from './TareaDetalles';
 import {crudItemsMixin} from "../mixins/crudItems.js";
 export default {
   name: "Tareas",
@@ -26,7 +28,8 @@ export default {
     todoService.get().then(items => (this.items = items.data));
   },
   components: {
-    Tarea
+    Tarea,
+    TareaDetalles
   }
 };
 </script>
